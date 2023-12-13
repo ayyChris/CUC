@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--header,registar -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Maestros</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark"> Manejo de Profesores</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--/header -->
+
+    <!--Main Site -->
+        <main id="site-main">
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <a href="/registrar-maestro" class="border-shadow"> 
+                        <span class="text-gradient"> Nuevo Maestro <i class="fa-solid fa-user"></i></span>
+                    </a>
+                </div>
+
+                <!--form handling -->
+                <form action="/" method="POST">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>IDMaestro</th>
+                                <th>Cedula</th>
+                                <th>Nombre Completo</th>
+                                <th>Edad</th>
+                                <th>Especialidad</th>
+                                <th>Provincia</th>
+                                <th>Fecha de ingreso a la institución</th>
+                                <th>Contraseña</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>3015820</td>
+                                <td>Username</td>
+                                <td>29</td>
+                                <td>TI</td>
+                                <td>Cartago</td>
+                                <td>12/11/2009</td>
+                                <td>pruebaa</td>
+                                <td>
+                                    <a href="#" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+        </main>
+    <!--/Main Site -->
+</body>
+</html>

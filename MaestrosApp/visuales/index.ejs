@@ -1,0 +1,41 @@
+<!--include header -->
+    <%- include('include/_header') %>
+<!--/include header -->
+
+    <!--Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/registrar-maestro" class="border-shadow"> 
+                    <span class="text-gradient"> Nuevo Maestro <i class="fa-solid fa-user"></i></span>
+                </a>
+            </div>
+
+            <!--form handling -->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>IDMaestro</th>
+                            <th>Nombre Completo</th>
+                            <th>Cedula</th>
+                            <th>Edad</th>
+                            <th>Especialidad</th>
+                            <th>Provincia</th>
+                            <th>Fecha de ingreso a la institución</th>
+                            <th>Contraseña</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_show') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!--/Main Site -->
+
+<!--include footer -->
+<%- include('include/_footer') %>
+<!--/include footer -->

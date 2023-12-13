@@ -1,0 +1,114 @@
+<!--include header -->
+<%- include('include/_header') %>
+<!--/include header -->
+
+<!--Main Site -->
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+        <div class="filter">
+            <a href="/"><i class="fas fa-angle-double-left"></i> Todos los Usuarios:</a>
+        </div>
+        </div>
+
+        <div class="form-title text-center">
+            <h2 class="text-dark">Modificar Maestro</h2>
+            <span class="text-light">Use este formulario para modificar un maestro. </span>
+        </div>
+
+        <!--añadir formulario maestro -->
+                <!--form handling -->
+        <!--falta la id -->
+        <form method="POST" id="modificar_maestro">
+            <div class="nuevoMaestro"> 
+             <div class="form-group">
+                 <label for="Nombre" class="text-light">Nombre Completo:</label>
+                 <input type="hidden" name="id" value="<%= maestro[0]._id %>">
+                 <input type="text" name="nombreCompleto" value="<%= maestro[0].nombreCompleto %>" placeholder="Mark Stoenis">
+             </div>
+             <div class="form-group">
+                 <label for="Cedula" class="text-light">Cedula:</label>
+                 <input type="text" name="Cedula" value="<%=maestro[0].Cedula%>" placeholder="385192429">
+             </div>
+             <div class="form-group">
+                 <label for="Edad" class="text-light">Edad:</label>
+                 <input type="text" name="Edad" value="<%=maestro[0].Edad%>" placeholder="34">
+             </div>
+             <div class="form-group">
+                 <label for="Especialidad" class="text-light">Especialidad:</label>
+                 <input type="text" name="Especialidad" value="<%=maestro[0].Especialidad%>" placeholder="Criminologia">
+             </div>
+             <div class="form-group">
+                 <label for="Provincia" class="text-light">Provincia:</label>
+                 <input type="text" name="Provincia" value="<%=maestro[0].Provincia%>" placeholder="Limón">
+             </div>
+             <div class="form-group">
+                 <label for="Fecha" class="text-light">Fecha de ingreso a la institucion:</label>
+                 <input type="text" name="FechaIngreso" value="<%=maestro[0].FechaIngreso%>" placeholder="15/10/2009">
+             </div>
+             <div class="form-group">
+                 <label for="Contraseña" class="text-light">Contraseña:</label>
+                 <input type="text" name="PasswordMaestro" value="<%=maestro[0].PasswordMaestro%>" placeholder="password123">
+             </div>
+ 
+             <div class="form-group">
+                 <button type="submit" class="btn text-dark update">Guardar</button>
+             </div>
+            </div>
+         </form>
+         <!-- Resto del HTML -->
+
+<script>
+    // Manejar el submit del formulario
+    document.getElementById('modificar_maestro').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        // Obtener el valor del campo ID
+        const id = document.querySelector('[name="id"]').value;
+
+        // Construir el objeto de datos con los campos del formulario
+        const data = {};
+        const formElements = this.elements;
+
+        for (let i = 0; i < formElements.length; i++) {
+            const element = formElements[i];
+            if (element.name !== 'id') {
+                data[element.name] = element.value;
+            }
+        }
+
+        try {
+            // Construir la URL para la solicitud PUT
+            const url = `http://localhost:3001/API/Users/${id}`;
+
+            // Realizar la solicitud PUT usando Fetch
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Manejar la respuesta del servidor
+            const responseData = await response.json();
+            console.log(responseData);
+            alert("Datos actualizados correctamente");
+        } catch (error) {
+            // Manejar errores
+            console.error('Error:', error);
+            alert("Hubo un error al actualizar los datos");
+        }
+    });
+</script>
+
+<!-- Resto del HTML -->
+
+    </div>
+</main>
+<!--/Main Site -->
+
+<!--include footer -->
+<%- include('include/_footer') %>
+<!--/include footer -->
+

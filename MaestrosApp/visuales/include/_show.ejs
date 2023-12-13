@@ -1,0 +1,21 @@
+<% for(var i= 0; i <maestros.length; i++){%>
+
+<tr>
+    <td><%=i+1%></td>
+    <td><%=maestros[i].nombreCompleto%></td>
+    <td><%=maestros[i].Cedula%></td>
+    <td><%=maestros[i].Edad%></td>
+    <td><%=maestros[i].Especialidad%></td>
+    <td><%=maestros[i].Provincia%></td>
+    <td><%=maestros[i].FechaIngreso%></td>
+    <td><%=maestros[i].PasswordMaestro%></td>
+    <td>
+        <a href="/modificar-maestro?id=<%= maestros[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= maestros[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<%}%>
